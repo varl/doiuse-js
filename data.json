@@ -1,0 +1,21 @@
+{
+    "es.array-buffer": {},
+    "es.array": {},
+    "es.data-view": {},
+    "es.date": {},
+    "es.function": {},
+    "es.json": {},
+    "es.map": {},
+    "es.math": {},
+    "es.number": {},
+    "es.object": {},
+    "es.promise": {},
+    "es.reflect": {},
+    "es.regexp": {},
+    "es.set": {},
+    "es.string": {},
+    "es.symbol": {},
+    "es.typed-array": {},
+    "es.weak-map": {},
+    "es.weak-set": {}
+}
