@@ -2,11 +2,14 @@
   "name": "doiuse-js",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:varl/es-feat-scan.git",
+  "repository": "git@github.com:varl/doiuse-js.git",
   "author": "Viktor Varland <viktor@vardevs.se>",
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "recast": "^1.16.2"
+    "recast": "^0.17.2"
+  },
+  "devDependencies": {
+    "tape": "^4.9.2"
   }
 }
