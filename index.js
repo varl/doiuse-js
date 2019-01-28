@@ -1,33 +1,50 @@
-const recast = require('recast')
+#!/usr/bin/env node
 
-const code = `
-    const foo = [1,2,3].includes(1)
-    Promise.all([])
-`
+const glob = require('glob')
+const argv = require('yargs').argv
+
+const { features } = require('./features')
 
 function main(opts) {
-    const ast = recast.parse(code)
-    const types = recast.types
+    glob(opts.glob, opts, function (err, files) {
+        const report = files.map(f => {
+            const list = features(f)
+            return {
+                file: f,
+                features: list,
+            }
+        })
 
-    //console.log('ast', ast)
-    types.visit(ast, {
+        report.map(r => {
+            if (r.features.length > 0) {
+                console.log(`${r.file}:`)
+                r.features.map(f => {
+                    console.log(f)
+                })
+                console.log('\n\n')
+            }
+        })
 
-        visitIdentifier: function (path) {
-            const node = path.node
-
-            console.log(node)
-
-            this.traverse(path)
-        },
-
-        visitVariableDeclaration: function (path) {
-            console.log(path.node)
-
-            this.traverse(path)
-        }
-
+        //
+        // output:
+        // {
+        //  es6: {
+        //    features: [...],
+        //    builtIns: [...]
+        //  },
+        //  es7: ...
+        // }
+        //
+        // const browserslist = require('...')
+        //
+        // caniuse(report, browserslist)
+        //
+        // prettyPrint(report)
     })
-
 }
 
-main({})
+main({
+    cwd: argv._[0],
+    glob: argv._[1] || '**/*.js',
+    absolute: true,
+})
