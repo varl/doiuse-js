@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "bin": {
-    "doiuse-js": "./index.js"
+    "doiuse-js": "bin/doiuse-js"
   },
   "repository": "git@github.com:varl/doiuse-js.git",
   "author": "Viktor Varland <viktor@vardevs.se>",

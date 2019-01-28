@@ -1,6 +1,6 @@
 const { types } = require('recast')
 
-exports.name = 'es6.symbol'
+exports.name = 'es6.promise'
 
 exports.def = function (ast) {
     let result = false
@@ -9,7 +9,7 @@ exports.def = function (ast) {
         visitIdentifier: function (path) {
             const node = path.node
 
-            if (node.name === 'Symbol') {
+            if (node.name === 'Promise') {
                 result = true
             }
 
@@ -19,3 +19,4 @@ exports.def = function (ast) {
 
     return result
 }
+

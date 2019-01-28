@@ -1,13 +1,11 @@
-#!/usr/bin/env node
-
 const glob = require('glob')
-const argv = require('yargs').argv
 
 const { features } = require('./features')
 
-function main(opts) {
+module.exports = function main(opts) {
     glob(opts.glob, opts, function (err, files) {
         const report = files.map(f => {
+            console.log(f)
             const list = features(f)
             return {
                 file: f,
@@ -25,7 +23,6 @@ function main(opts) {
             }
         })
 
-        //
         // output:
         // {
         //  es6: {
@@ -42,9 +39,3 @@ function main(opts) {
         // prettyPrint(report)
     })
 }
-
-main({
-    cwd: argv._[0],
-    glob: argv._[1] || '**/*.js',
-    absolute: true,
-})

@@ -1,4 +1,4 @@
-const { types, namedTypes } = require('recast')
+const { types } = require('recast')
 
 exports.name = 'es6.map'
 
