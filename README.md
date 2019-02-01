@@ -31,6 +31,63 @@ doiuse-js build/bundle.js
 ## ToDo
 
 - [ ] Identify ES6 features
+
+- - API
+- - - [x] Symbol
+- - - [x] Map/WeakMap
+- - - [x] Set/WeakSet
+- - - [x] Promise
+- - - [x] Intl
+- - - [x] Reflect
+- - - [x] Proxy
+- - - [ ] TypedArray
+- - - [ ] Generator
+- - - [ ] Class
+- - - [ ] Modules
+
+- - Syntax
+- - - [ ] Destructuring assignment
+- - - [ ] Method notation in object property definitions
+- - - [ ] Computed names in object property definitions
+- - - [ ] Object property shorthand
+- - - [ ] Binary literal
+- - - [ ] Octal literal
+- - - [ ] RegExp literal
+- - - [ ] Unicode string literal
+- - - [ ] Template literal
+- - - [ ] Default parameter values
+- - - [ ] Arrow functions
+- - - [ ] Block-scope variables
+- - - [ ] Block-scope functions
+- - - [ ] Constants
+
+- - Protocols
+- - - [ ] Iterable
+- - - [ ] Iterator
+
+- - Built-in
+- - - [ ] Object.assign
+- - - [ ] Array.find
+- - - [ ] Array.findIndex
+- - - [ ] String.repeat
+- - - [ ] String.startsWith
+- - - [ ] String.endsWith
+- - - [ ] String.includes
+- - - [ ] String.raw
+- - - [ ] Number.isNaN
+- - - [ ] Number.isFinite
+- - - [ ] Number.isSafeInteger
+- - - [ ] Number.EPSILON
+- - - [ ] Math.trunc
+- - - [ ] Math.sign
+- - - [ ] Regular Expression Sticky Matching
+
+- - Operators
+- - - [ ] for-of
+- - - [ ] spread
+- - - [ ] rest
+
+
 - [ ] Identify ES7 features
 - [ ] Integrate
   [Browserslist](https://github.com/browserslist/browserslist) to check

@@ -10,6 +10,10 @@ const weakmap = require('../features/es6/weak-map.js')
 const set = require('../features/es6/set.js')
 const weakset = require('../features/es6/weak-set.js')
 
+const intl = require('../features/es6/intl.js')
+const reflect = require('../features/es6/reflect.js')
+const proxy = require('../features/es6/proxy.js')
+
 test('Symbol', t => {
     t.plan(3)
 
@@ -22,7 +26,7 @@ test('Symbol', t => {
     t.ok(symbol.def(ast3))
 })
 
-test('Map', t => {
+test('Map/WeakMap', t => {
     t.plan(2)
 
     const ast1 = recast.parse(`const foo = new Map([])`)
@@ -52,4 +56,34 @@ test('Promise', t => {
     });`)
 
     t.ok(promise.def(ast))
+})
+
+test('Intl', t => {
+    t.plan(4)
+
+    const ast1 = recast.parse(`var l10nSV = new Intl.Collator("sv")`)
+    const ast2 = recast.parse(`var l10nEN = new Intl.NumberFormat("en-US")`)
+    const ast3 = recast.parse(`var l10nEUR = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" })`)
+    const ast4 = recast.parse(`var l10nDE = new Intl.DateTimeFormat("de-DE")`)
+
+    t.ok(intl.def(ast1))
+    t.ok(intl.def(ast2))
+    t.ok(intl.def(ast3))
+    t.ok(intl.def(ast4))
+})
+
+test('Reflect', t => {
+    t.plan(1)
+
+    const ast = recast.parse(`Reflect.ownKeys({ a: 1 })`)
+
+    t.ok(reflect.def(ast))
+})
+
+test('Proxy', t => {
+    t.plan(1)
+
+    const ast = recast.parse(`let proxy = new Proxy(target, { get (receiver, name) { return name in receiver ? receiver[name] : name } })`)
+
+    t.ok(proxy.def(ast))
 })
