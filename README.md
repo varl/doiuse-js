@@ -21,6 +21,8 @@ level of ES you want to ship.
 It works on bundles too, so you can run it with a set target to make it
 give a non-zero exit code if the build contains non-targeted features.
 
+Built with [recast](https://github.com/benjamn/recast) under the hood.
+
 ## Usage
 
 ```
@@ -32,7 +34,7 @@ doiuse-js build/bundle.js
 
 - [ ] Identify ES6 features
 
-- - API
+- - [ ] API
 - - - [x] Symbol
 - - - [x] Map/WeakMap
 - - - [x] Set/WeakSet
@@ -40,12 +42,12 @@ doiuse-js build/bundle.js
 - - - [x] Intl
 - - - [x] Reflect
 - - - [x] Proxy
-- - - [ ] TypedArray
-- - - [ ] Generator
-- - - [ ] Class
+- - - [x] TypedArray
+- - - [x] Generator
+- - - [x] Class
 - - - [ ] Modules
 
-- - Syntax
+- - [ ] Syntax
 - - - [ ] Destructuring assignment
 - - - [ ] Method notation in object property definitions
 - - - [ ] Computed names in object property definitions
@@ -61,11 +63,11 @@ doiuse-js build/bundle.js
 - - - [ ] Block-scope functions
 - - - [ ] Constants
 
-- - Protocols
+- - [ ] Protocols
 - - - [ ] Iterable
 - - - [ ] Iterator
 
-- - Built-in
+- - [ ] Built-in
 - - - [ ] Object.assign
 - - - [ ] Array.find
 - - - [ ] Array.findIndex
@@ -82,7 +84,7 @@ doiuse-js build/bundle.js
 - - - [ ] Math.sign
 - - - [ ] Regular Expression Sticky Matching
 
-- - Operators
+- - [ ] Operators
 - - - [ ] for-of
 - - - [ ] spread
 - - - [ ] rest
@@ -93,3 +95,4 @@ doiuse-js build/bundle.js
   [Browserslist](https://github.com/browserslist/browserslist) to check
   if target level is compatible.
 - [ ] Suggested polyfills
+
