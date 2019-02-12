@@ -34,7 +34,7 @@ doiuse-js build/bundle.js
 
 - [ ] Identify ES6 features
 
-- - [ ] API
+- - [x] API
 - - - [x] Symbol
 - - - [x] Map/WeakMap
 - - - [x] Set/WeakSet
@@ -45,7 +45,7 @@ doiuse-js build/bundle.js
 - - - [x] TypedArray
 - - - [x] Generator
 - - - [x] Class
-- - - [ ] Modules
+- - - [x] Modules
 
 - - [ ] Syntax
 - - - [ ] Destructuring assignment
