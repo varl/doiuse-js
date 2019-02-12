@@ -1,19 +1,20 @@
 const test   = require('tape')
 const recast = require('recast')
 
-const symbol        = require('../features/es6/symbol.js')
-const promise       = require('../features/es6/promise.js')
-const map           = require('../features/es6/map.js')
-const weakmap       = require('../features/es6/weak-map.js')
-const set           = require('../features/es6/set.js')
-const weakset       = require('../features/es6/weak-set.js')
-const intl          = require('../features/es6/intl.js')
-const reflect       = require('../features/es6/reflect.js')
-const proxy         = require('../features/es6/proxy.js')
-const arraybuffer   = require('../features/es6/arraybuffer.js')
-const typedarray    = require('../features/es6/typedarray.js')
-const generator     = require('../features/es6/generator.js')
-const classy         = require('../features/es6/class.js')
+const symbol = require('../features/es6/symbol.js')
+const promise = require('../features/es6/promise.js')
+const map = require('../features/es6/map.js')
+const weakmap = require('../features/es6/weak-map.js')
+const set = require('../features/es6/set.js')
+const weakset = require('../features/es6/weak-set.js')
+const intl = require('../features/es6/intl.js')
+const reflect = require('../features/es6/reflect.js')
+const proxy = require('../features/es6/proxy.js')
+const arraybuffer = require('../features/es6/arraybuffer.js')
+const typedarray = require('../features/es6/typedarray.js')
+const generator = require('../features/es6/generator.js')
+const classy = require('../features/es6/class.js')
+const modules = require('../features/es6/modules.js')
 
 test('Symbol', t => {
     t.plan(3)
@@ -141,4 +142,14 @@ test('Class', t => {
 
     t.ok(classy.def(ast))
     t.ok(classy.def(ce))
+})
+
+test('Modules', t => {
+	t.plan(2)
+
+	const ast1 = recast.parse('import foo from "bar"')
+	const ast2 = recast.parse('import { foo } from "bar/lib/foo"')
+
+	t.ok(modules.def(ast1))
+	t.ok(modules.def(ast2))
 })
