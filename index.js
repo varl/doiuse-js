@@ -4,6 +4,7 @@ const { features } = require('./features')
 
 module.exports = function main(opts) {
     glob(opts.glob, opts, function (err, files) {
+        console.log('Files:')
         const report = files.map(f => {
             console.log(f)
             const list = features(f)
@@ -13,13 +14,15 @@ module.exports = function main(opts) {
             }
         })
 
+        console.log('')
+        console.log('Report:')
         report.map(r => {
             if (r.features.length > 0) {
                 console.log(`${r.file}:`)
                 r.features.map(f => {
-                    console.log(f)
+                    Object.keys(f).map(e => console.log(e))
                 })
-                console.log('\n\n')
+                console.log('')
             }
         })
 
