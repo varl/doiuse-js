@@ -28,13 +28,5 @@ exports.features = function (file, level = 'all') {
         }
     }
 
-    return features
-        .map(f => {
-            const usage = f.def(ast)
-
-            return {
-                [f.name]: usage,
-            }
-        })
-        .filter(f => Object.values(f)[0])
+    return features.filter(feature => feature.def(ast))
 }

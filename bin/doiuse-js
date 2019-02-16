@@ -2,11 +2,17 @@
 
 const doiuse = require('../index.js')
 
-const argv = require('yargs').argv
+const argv = require('yargs')
+    .option('json', {
+        describe: 'Print report as JSON',
+        default: false,
+    })
+    .argv
 
 doiuse({
     cwd: argv._[0] || process.cwd(),
     glob: argv._[1] || '**/*.js',
     ignore: 'node_modules/**/*',
     absolute: true,
+    json: argv.json,
 })

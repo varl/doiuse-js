@@ -96,3 +96,13 @@ doiuse-js build/bundle.js
   if target level is compatible.
 - [ ] Suggested polyfills
 
+
+## Caveats
+
+### `('._.)`
+
+- Only parses [Esprima](http://esprima.org/) compatible code
+
+### `(╯._.)╯︵ ┻━┻`
+
+- JSX syntax
