@@ -2,6 +2,8 @@ const { types } = require('recast')
 
 exports.name = 'es6.arraybuffer'
 
+exports.type = 'api'
+
 exports.def = function (ast) {
     let result = false
 

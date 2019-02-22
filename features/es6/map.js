@@ -1,6 +1,7 @@
 const { types } = require('recast')
 
 exports.name = 'es6.map'
+exports.type = 'api'
 
 exports.def = function (ast) {
     let result = false

@@ -84,10 +84,10 @@ doiuse-js build/bundle.js
 - - - [ ] Math.sign
 - - - [ ] Regular Expression Sticky Matching
 
-- - [ ] Operators
-- - - [ ] for-of
-- - - [ ] spread
-- - - [ ] rest
+- - [x] Operators
+- - - [x] for-of
+- - - [x] spread
+- - - [x] rest
 
 
 - [ ] Identify ES7 features

@@ -1,18 +1,18 @@
 const { types } = require('recast')
 
-exports.name = 'es6.symbol'
-exports.type = 'api'
+exports.name = 'es6.rest'
+exports.type = 'operator'
 
 exports.def = function (ast) {
     let result = false
 
     types.visit(ast, {
-        visitIdentifier: function (path) {
+        visitRestElement: function (path) {
             const node = path.node
 
-            if (node.name === 'Symbol') {
-                result = true
-            }
+            console.log(node.name, node.type)
+
+            result = true
 
             this.traverse(path)
         },

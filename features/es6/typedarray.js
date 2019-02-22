@@ -1,6 +1,7 @@
 const { types } = require('recast')
 
 exports.name = 'es6.typedarray'
+exports.type = 'api'
 
 exports.def = function (ast) {
     let result = false

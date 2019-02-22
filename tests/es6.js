@@ -15,6 +15,9 @@ const typedarray = require('../features/es6/typedarray.js')
 const generator = require('../features/es6/generator.js')
 const classy = require('../features/es6/class.js')
 const modules = require('../features/es6/modules.js')
+const rest = require('../features/es6/rest.js')
+const spread = require('../features/es6/spread.js')
+const forof = require('../features/es6/for-of.js')
 
 test('Symbol', t => {
     t.plan(3)
@@ -152,4 +155,28 @@ test('Modules', t => {
 
 	t.ok(modules.def(ast1))
 	t.ok(modules.def(ast2))
+})
+
+test('Rest', t => {
+    t.plan(1)
+
+    const ast = recast.parse('function bla(pants, ...rest) {}')
+
+    t.ok(rest.def(ast))
+})
+
+test('Spread', t => {
+    t.plan(1)
+
+    const ast = recast.parse('const foo = [...blargh]')
+
+    t.ok(spread.def(ast))
+})
+
+test('For-Of', t => {
+    t.plan(1)
+
+    const ast = recast.parse('for (foo of bar) { continue }')
+
+    t.ok(forof.def(ast))
 })
