@@ -3,6 +3,13 @@ const path = require('path')
 
 const r = require('recast')
 
+exports.mappings = {
+    'es6': ['es2015', 'es6harmony'],
+    'es7': ['es2016'],
+    'es8': ['es2017'],
+    'es9': ['es2018'],
+}
+
 const es = {
     'es6': path.join(__dirname, 'es6'),
     'es7': path.join(__dirname, 'es7'),

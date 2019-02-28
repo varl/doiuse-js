@@ -18,6 +18,8 @@ const modules = require('../features/es6/modules.js')
 const rest = require('../features/es6/rest.js')
 const spread = require('../features/es6/spread.js')
 const forof = require('../features/es6/for-of.js')
+const templateliteral = require('../features/es6/template-literal.js')
+const arrow = require('../features/es6/arrow.js')
 
 test('Symbol', t => {
     t.plan(3)
@@ -162,7 +164,7 @@ test('Rest', t => {
 
     const ast = recast.parse('function bla(pants, ...rest) {}')
 
-    t.ok(rest.def(ast))
+    t.ok(rest.def(ast), 'RestElement')
 })
 
 test('Spread', t => {
@@ -170,7 +172,7 @@ test('Spread', t => {
 
     const ast = recast.parse('const foo = [...blargh]')
 
-    t.ok(spread.def(ast))
+    t.ok(spread.def(ast), 'SpreadElement')
 })
 
 test('For-Of', t => {
@@ -178,5 +180,26 @@ test('For-Of', t => {
 
     const ast = recast.parse('for (foo of bar) { continue }')
 
-    t.ok(forof.def(ast))
+    t.ok(forof.def(ast), 'ForOfStatement')
+})
+
+test('Template Literal', t => {
+    t.plan(3)
+
+    const ast1 = recast.parse('const hey = `a rad string`')
+    const ast2 = recast.parse('`${a + b}`')
+    const ast3 = recast.parse('foo`${a + b}`')
+
+    t.ok(templateliteral.def(ast1), 'TemplateLiteral')
+    t.ok(templateliteral.def(ast2), 'TemplateExpression')
+    t.ok(templateliteral.def(ast3), 'TaggedTemplateExpression')
+})
+
+
+test('Arrow Expression', t => {
+    t.plan(1)
+
+    const ast = recast.parse('const foo = a => { const b = a + 1; return b }')
+
+    t.ok(arrow.def(ast), 'ArrowExpression')
 })

@@ -1,13 +1,13 @@
 const { types } = require('recast')
 
-exports.name = 'es6.rest'
-exports.type = 'operator'
+exports.name = 'es6.arrow-expression'
+exports.type = 'syntax'
 
 exports.def = function (ast) {
     let result = false
 
     types.visit(ast, {
-        visitRestElement: function (path) {
+        visitArrowFunctionExpression: function (path) {
             const node = path.node
 
             result = true

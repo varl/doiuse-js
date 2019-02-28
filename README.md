@@ -56,9 +56,9 @@ doiuse-js build/bundle.js
 - - - [ ] Octal literal
 - - - [ ] RegExp literal
 - - - [ ] Unicode string literal
-- - - [ ] Template literal
+- - - [x] Template literal
 - - - [ ] Default parameter values
-- - - [ ] Arrow functions
+- - - [x] Arrow functions
 - - - [ ] Block-scope variables
 - - - [ ] Block-scope functions
 - - - [ ] Constants
